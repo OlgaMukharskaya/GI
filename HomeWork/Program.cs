@@ -12,11 +12,7 @@ namespace HomeWork
                 Array[index] = index * index;
             }
 
-            foreach (int item in Array)
-
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine(string.Join("\n", Array));
 
             //Создать массив размером 10 элементов, заполнить его квадратами индексов (в цикле), и вывести его содержимое на экран
         }
