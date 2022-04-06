@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeWork
 {
-    abstract class Buyer : Client
+    abstract class Buyer
     {
-        public Buyer(string FirstName, string LastName) : base(FirstName, LastName)
-        {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
+
+        public Buyer(string firstname, string lastname)
+        {
+            this.FirstName = firstname;
+            this.LastName = lastname;
         }
+
         public abstract void PaymentMethod();
     }
 }
