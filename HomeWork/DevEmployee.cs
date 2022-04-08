@@ -10,14 +10,15 @@ namespace HomeWork
     {
         public DevEmployee(string firstname, string lastname, int taxid) : base(firstname, lastname, taxid) { }
 
-        public string WriteCode()
+
+        public void ReviewCode()
         {
-            return "Code is witten";
+            Console.WriteLine("The Developer can Review Code: {0} {1} ", FirstName, LastName);
         }
 
-        public string ReviewCode()
+        public void WriteCode()
         {
-            return "Code is reviewed";
+            Console.WriteLine("The Developer can Write Code: {0} {1} ", FirstName, LastName);
         }
 
 

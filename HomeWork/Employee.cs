@@ -18,6 +18,5 @@ namespace HomeWork
             LastName = lastname;
             TaxID = taxid;
         }
-
     }
 }

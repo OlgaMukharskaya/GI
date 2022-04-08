@@ -8,6 +8,6 @@ namespace HomeWork
 {
     interface IReviewer
     {
-        string ReviewCode();
+        void ReviewCode();
     }
 }

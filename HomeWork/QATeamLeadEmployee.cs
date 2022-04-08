@@ -10,10 +10,10 @@ namespace HomeWork
     {
         public QATeamLeadEmployee(string firstname, string lastname, int taxid) : base(firstname, lastname, taxid) { }
 
-
-        public string AssignTasks()
+        
+        public void AssignTasks()
         {
-            return "Task is assigned by BA";
+            Console.WriteLine("The QA-Automation Team Lead can Wirte Code: {0} {1} ", FirstName, LastName);
         }
 
     }

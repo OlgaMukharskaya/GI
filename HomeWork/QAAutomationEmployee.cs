@@ -10,14 +10,14 @@ namespace HomeWork
     {
         public QAAutomationEmployee(string firstname, string lastname, int taxid) : base(firstname, lastname, taxid) { }
 
-        public string WriteCode()
+        public void WriteCode()
         {
-            return "Code is witten";
+            Console.WriteLine("The QA-Automation Engineer can Wirte Code: {0} {1} ", FirstName, LastName); 
         }
 
-        public string ReviewCode()
+        public void ReviewCode()
         {
-            return "Code is reviewed";
+            Console.WriteLine("The QA-Automation Engineer can Review Code: {0} {1} ", FirstName, LastName);
         }
 
     }

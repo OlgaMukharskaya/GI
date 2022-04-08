@@ -8,6 +8,7 @@ namespace HomeWork
 {
     interface ITaskAssigner
     {
-        string AssignTasks();
+        public void AssignTasks();
+
     }
 }

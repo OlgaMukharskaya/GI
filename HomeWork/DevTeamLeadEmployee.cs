@@ -10,9 +10,10 @@ namespace HomeWork
     {
         public DevTeamLeadEmployee(string firstname, string lastname, int taxid) : base(firstname, lastname, taxid) { }
 
-        public string AssignTasks()
+        public void AssignTasks()
         {
-            return "Task is assigned";
+            Console.WriteLine("The Dev Team Lead can Assign Tasks: {0} {1} ", FirstName, LastName);
         }
+
     }
 }

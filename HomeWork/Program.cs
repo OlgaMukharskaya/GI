@@ -23,40 +23,34 @@ namespace HomeWork
 
 
             foreach (Employee employee in ISSoft.Employees)
-            {
+            {     
                 if (employee is ITaskAssigner)
                 {
-                    Console.WriteLine($"The emplyee can Assign Tasks: {employee.FirstName} {employee.LastName} (TaxID: {employee.TaxID})");
+                    (employee as ITaskAssigner).AssignTasks();
                 }
-            }
 
-            foreach (Employee employee in ISSoft.Employees)
-            {
                 if (employee is IWriter)
                 {
-                    Console.WriteLine($"The emplyee can Write Code: {employee.FirstName} {employee.LastName} (TaxID: {employee.TaxID})");
+                    (employee as IWriter).WriteCode();
                 }
-            }
 
-            foreach (Employee employee in ISSoft.Employees)
-            {
                 if (employee is IReviewer)
                 {
-                    Console.WriteLine($"The emplyee can Review Code: {employee.FirstName} {employee.LastName} (TaxID: {employee.TaxID})");
+                    (employee as IReviewer).ReviewCode();
                 }
-            }
+            }          
+        
 
-           /* Разработать классы для программы управления ИТ офисом.
-            1.Класс Office содержит список Employee, сотрудники бывают QAEmployee, DevEmployee, BAEmployee, PMEmployee, QAAutomationEmployee, QAAutomationTeamLead, DevTEamLead, QATeamLead. 
-            2.Ассайнить таски могут тимлиды и PMEmployee, 
-            делать ревью кода тимлиды QAAutomation и Dev.
-            3.Писать код могут Dev, QAAuto и их тимлиды. 
-            4.Заполнить список Employee специалистами разного профиля, и вывести подробную информацию о специлистах, которые могут
-            4.1 писать код
-            4.2 ассайнить таски
-            4.3 делать ревью кода
-           */
-
+       /* Разработать классы для программы управления ИТ офисом.
+        1.Класс Office содержит список Employee, сотрудники бывают QAEmployee, DevEmployee, BAEmployee, PMEmployee, QAAutomationEmployee, QAAutomationTeamLead, DevTEamLead, QATeamLead. 
+        2.Ассайнить таски могут тимлиды и PMEmployee, 
+        делать ревью кода тимлиды QAAutomation и Dev.
+        3.Писать код могут Dev, QAAuto и их тимлиды. 
+        4.Заполнить список Employee специалистами разного профиля, и вывести подробную информацию о специлистах, которые могут
+        4.1 писать код
+        4.2 ассайнить таски
+        4.3 делать ревью кода
+       */
 
         }
     }

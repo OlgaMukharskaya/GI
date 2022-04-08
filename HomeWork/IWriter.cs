@@ -8,6 +8,6 @@ namespace HomeWork
 {
     interface IWriter
     {
-        string WriteCode();
+        void WriteCode();
     }
 }

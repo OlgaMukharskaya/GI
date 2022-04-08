@@ -10,14 +10,14 @@ namespace HomeWork
     {
         public PMEmployee(string firstname, string lastname, int taxid) : base(firstname, lastname, taxid) { }
 
-        public string AssignTasks()
+        public void AssignTasks()
         {
-            return "Task is assigned by MP";
+            Console.WriteLine("the Project Manager can Assign Tasks: {0} {1} ", FirstName, LastName);
         }
 
-        public string ReviewCode()
+        public void ReviewCode()
         {
-            return "PMs can't review code";
+            Console.WriteLine("The Project Manage can Review Code: {0} {1} ", FirstName, LastName);
         }
     }
 }
