@@ -1,4 +1,5 @@
 ﻿using System;
+using HomeWork.Comparers;
 
 namespace HomeWork
 {
@@ -22,36 +23,44 @@ namespace HomeWork
 
 
 
+            ISSoft.Employees.Sort(new FirstNameComparer());
+            Console.WriteLine($"By First Name (ascending)");
             foreach (Employee employee in ISSoft.Employees)
-            {     
-                if (employee is ITaskAssigner)
-                {
-                    (employee as ITaskAssigner).AssignTasks();
-                }
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName}, TaxID: {employee.TaxID}");
+            }
+            Console.WriteLine("\n");
 
-                if (employee is IWriter)
-                {
-                    (employee as IWriter).WriteCode();
-                }
+            ISSoft.Employees.Sort(new TaxIDComparer());
+            Console.WriteLine($"By Tax ID (ascending)");
+            foreach (Employee employee in ISSoft.Employees)
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName}, TaxID: {employee.TaxID}");
+            }
+            Console.WriteLine("\n");
 
-                if (employee is IReviewer)
-                {
-                    (employee as IReviewer).ReviewCode();
-                }
-            }          
-        
+            ISSoft.Employees.Sort(new FullNameLengthComparer());
+            Console.WriteLine($"By Full Name Length (ascending)");
+            foreach (Employee employee in ISSoft.Employees)
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName}, TaxID: {employee.TaxID}");
+            }
+            Console.WriteLine("\n");
 
-       /* Разработать классы для программы управления ИТ офисом.
-        1.Класс Office содержит список Employee, сотрудники бывают QAEmployee, DevEmployee, BAEmployee, PMEmployee, QAAutomationEmployee, QAAutomationTeamLead, DevTEamLead, QATeamLead. 
-        2.Ассайнить таски могут тимлиды и PMEmployee, 
-        делать ревью кода тимлиды QAAutomation и Dev.
-        3.Писать код могут Dev, QAAuto и их тимлиды. 
-        4.Заполнить список Employee специалистами разного профиля, и вывести подробную информацию о специлистах, которые могут
-        4.1 писать код
-        4.2 ассайнить таски
-        4.3 делать ревью кода
-       */
+            ISSoft.Employees.Sort(new TasksAssignComparer());
+            Console.WriteLine($"By task assigning");
+            foreach (Employee employee in ISSoft.Employees)
+            {
+                Console.WriteLine($"{employee.LastName}, {employee.FirstName}");
+            }
 
+            /*
+             отсортируйте и выведите в консоль сотрудников по:
+            1. Имени
+            2. TaxID
+            3. Общей длине имени и фамилии
+            4* Умению ассанить таски- ITaskAssigner сначала (их допольнительно отсортировать по фамилии), потом все остальные
+             */
         }
     }
 }
