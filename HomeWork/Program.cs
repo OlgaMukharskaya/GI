@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,7 +19,7 @@ namespace Task_9
             authors.Add(new Author("Kameron", "Schaefer", 1941, 005));
 
 
-            Catalogue Libriary = new Catalogue()
+            Catalogue Libriary = new Catalogue() 
             {
                 Books = new List<Book>()
             };
@@ -35,7 +35,7 @@ namespace Task_9
             Libriary.Books.Add(new Book("Little Bird", new List<Author>() { authors[5] }, 2016, 712365547));
 
 
-
+            
             Libriary.SortByTitle();
             Console.WriteLine("\n");
 
@@ -44,16 +44,10 @@ namespace Task_9
 
             Libriary.OneAuthor("Kameron", "Schaefer", 2010);
             Console.WriteLine("\n");
-
+            
             Libriary.SortByDOB();
 
         }
     }
 }
-
-
-
-
-
-
-
+        
