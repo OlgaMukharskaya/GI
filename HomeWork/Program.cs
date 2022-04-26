@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,16 +38,10 @@ namespace Task_9
 
             Libriary.OneAuthor("Kameron", "Schaefer", 2010);
             Console.WriteLine("\n");
-
+            
             Libriary.SortByDOB();
 
         }
     }
 }
-
-
-
-
-
-
-
+        
