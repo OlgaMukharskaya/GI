@@ -9,7 +9,6 @@ namespace Task_9
     {
         static void Main(string[] args)
         {
-
             List<Author> authors = new List<Author>();
             authors.Add(new Author("Kameron", "Becker", 1895, 000));
             authors.Add(new Author("Gunner", "Burton", 1970, 001));
@@ -18,11 +17,7 @@ namespace Task_9
             authors.Add(new Author("Josh", "Hubbard", 1975, 004));
             authors.Add(new Author("Kameron", "Schaefer", 1941, 005));
 
-
-            Catalogue Libriary = new Catalogue()
-            {
-                Books = new List<Book>()
-            };
+            Catalogue Libriary = new Catalogue();
             Libriary.Books.Add(new Book("Galley Minor", new List<Author>() { authors[0] }, 1925, 258541258));
             Libriary.Books.Add(new Book("Laviscounts", new List<Author>() { authors[0] }, 2013, 654782236));
             Libriary.Books.Add(new Book("Rabbit Habbit", new List<Author>() { authors[1], authors[5] }, 2015, 654125896));
@@ -33,7 +28,6 @@ namespace Task_9
             Libriary.Books.Add(new Book("Neck of Land", new List<Author>() { authors[4], authors[5] }, 2001, 645829971));
             Libriary.Books.Add(new Book("Little Bird", new List<Author>() { authors[5] }, 2001, 374412586));
             Libriary.Books.Add(new Book("Little Bird", new List<Author>() { authors[5] }, 2016, 712365547));
-
 
 
             Libriary.SortByTitle();
