@@ -12,6 +12,7 @@ namespace Task_10
     {
         public static void Main(string[] args)
         {
+ Task-10
 
             List<Author> authors = new List<Author>();
 
