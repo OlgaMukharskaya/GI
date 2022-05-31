@@ -16,6 +16,6 @@ namespace HomeWork.Pages
         {
             EnterButton = FindElement(By.XPath(EnterButtonLocator));
             EnterButton.Click();
-        }
+        }   
     }
 }

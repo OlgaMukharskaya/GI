@@ -22,102 +22,33 @@ namespace UnitTests
             driver = new ChromeDriver();
             driver.Url = "https://yahoo.com";
             driver.Manage().Window.Maximize();
+
         }
 
         [TestMethod]
-        public void SignInButtonOnHomePag()
+        public void YahooMailTest()
         {
-            Assert.IsNotNull(driver.FindElement(By.XPath("//a[@class='_yb_oqe7g']")).Displayed);
+            YahooHome homePage = new YahooHome(driver);
+            Assert.IsTrue(homePage.SignInButtonDisplayed());
+            homePage.GoToStartPage();
+
+            YahooLoginUsername loginUsername = new YahooLoginUsername(driver);
+            Assert.IsTrue(loginUsername.CkeckUsernamePageAppears());
+            Assert.IsTrue(loginUsername.GetWrongNameError());
+            loginUsername.GotoPasswordOlgaM();
+
+            YahooLoginPassword loginPassword = new YahooLoginPassword(driver);
+            Assert.IsTrue(loginPassword.CkeckPasswordPageAppears());
+            Assert.IsTrue(loginPassword.GetWrongPasswordError());
+            loginPassword.GoToMailBoxOlgaM();
+
+            YahooMailBox mailBox = new YahooMailBox(driver);
+            mailBox.GoToWriteLetterPage();
+
+            YahooWriteLetter writeLetter = new YahooWriteLetter(driver);
+            Assert.IsTrue(writeLetter.WriteletterPageAppears());
+            writeLetter.WriteLetterFromVolhaToOlga();
         }
-
-        [TestMethod]
-        public void ClickingSignInButtonOnHomePagNavigatestoMailStartPage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            Assert.IsTrue(driver.Url.Contains("https://mail.yahoo.com/?pspid"));
-        }
-
-        [TestMethod]
-        public void EnterButtonIsDisplayedOnMailStartPage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            Assert.IsNotNull(driver.FindElement(By.XPath("/html/body/div[1]/a")).Displayed);
-        }
-
-        [TestMethod]
-        public void ClickingEnterButtonOnMailStartPageNavigatesToLoginUsernamePage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            Thread.Sleep(3000);
-            Assert.IsTrue(driver.Url.Contains("https://login.yahoo.com/"));
-        }
-
-        [TestMethod]
-        public void EnteringCorrectUsernameAndClickingNextButtonOnLoginUsernamePageNavigatesToLoginPasswordPage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("volhamautomation@yahoo.com");
-
-            Thread.Sleep(3000);
-            Assert.IsTrue(driver.Url.Contains("https://login.yahoo.com/account/challenge/password"));
-        }
-
-        [TestMethod]
-        public void EnteringWUsernameAndClickingNextButtonOnLoginUsernamePageNavigatesToLoginPasswordPage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("volhamautomation@yahoo.com");
-
-            Thread.Sleep(3000);
-            Assert.IsNotNull(driver.FindElement(By.XPath("//div[@id='password-challenge']")).Displayed);
-        }
-
-        [TestMethod]
-        public void EnteringWrongUsernameAndClickingNextButtonOnLoginUsernamePageThorwsAnError()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("wrongusername999");
-
-            Thread.Sleep(3000);
-            Assert.IsNotNull(driver.FindElement(By.XPath("//p[@id='username-error']")).Displayed);
-        }
-
-        [TestMethod]
-        public void EnteringCorrectPasswordAndClickingNextButtonOnLoginPasswordPageNavigatesToMailPage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("volhamautomation@yahoo.com");
-            YahooLoginPassword yahooLoginPassword = new YahooLoginPassword(driver);
-            yahooLoginPassword.EnterPassword("Aa2753331!");
-            Thread.Sleep(3000);
-            Assert.IsTrue(driver.Url.Contains("mail.yahoo.com/d/folders"));
-        }
-
-
-
-        [TestMethod]
-        public void ClickingWriteButtonOpensNewLetterCreatePage()
-        {
-            YahooHome yahooHome = new YahooHome(driver);
-            YahooStart yahooStart = new YahooStart(driver);
-            YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("volhamautomation@yahoo.com");
-            YahooLoginPassword yahooLoginPassword = new YahooLoginPassword(driver);
-            yahooLoginPassword.EnterPassword("Aa2753331!");
-            Thread.Sleep(3000);
-            YahooMail yahooMail = new YahooMail(driver);
-            Assert.IsTrue(driver.Url.Contains("https://mail.yahoo.com/d/compose/"));
-        }
-
 
         [TestCleanup]
         public void CleanUp()

@@ -20,11 +20,30 @@ namespace HomeWork.Pages
             NextButton = FindElement(By.Id(NextButtonLocator));
         }
 
-        public void EnterPassword(string enterPassword)
+        public bool CkeckPasswordPageAppears()
+        {
+            var passwordField = FindElement(By.XPath(PasswordFieldLocator));
+            var nexButton = FindElement(By.Name(NextButtonLocator));
+            return passwordField != null && nexButton != null;
+        }
+
+        public bool GetWrongPasswordError()
+        {
+            GoToMailBoxPage("1111111111");
+            var wrongPasswordError = FindElement(By.ClassName("error-msg"));
+            return wrongPasswordError != null;
+        }
+
+        public void GoToMailBoxPage(string enterPassword)
         {
             PasswordField.Click();
             PasswordField.SendKeys(enterPassword);
             NextButton.Click();
+        }
+
+        public void GoToMailBoxOlgaM()
+        {
+            GoToMailBoxPage("Aa2753331!");
         }
     }
 }

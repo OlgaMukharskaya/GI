@@ -13,11 +13,20 @@ namespace HomeWork.Pages
         public IWebElement SignInButton { get; set; }
 
 
-        public YahooHome(IWebDriver driver) : base(driver)
+        public YahooHome(IWebDriver driver) : base(driver) { }
+        
+        public void GoToStartPage()
         {
             SignInButton = FindElement(By.ClassName(SignInButtonLocator));
 
             SignInButton.Click();
+
+        }
+
+        public bool SignInButtonDisplayed()
+        {
+            var signInButton = FindElement(By.ClassName(SignInButtonLocator));
+            return signInButton != null;
         }
     }
 }

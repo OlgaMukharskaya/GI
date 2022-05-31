@@ -26,12 +26,12 @@ namespace ConsoleApp5
             Thread.Sleep(3000); // Waiter
 
             YahooLoginUsername yahooLoginUsername = new YahooLoginUsername(driver);
-            yahooLoginUsername.EnterUsername("volhamautomation@yahoo.com");
+            yahooLoginUsername.GoToPasswordPage("volhamautomation@yahoo.com");
 
             YahooLoginPassword yahooLoginPassword = new YahooLoginPassword(driver);
-            yahooLoginPassword.EnterPassword("Aa2753331!");
+            yahooLoginPassword.GoToMailBoxPage("Aa2753331!");
 
-            YahooMail yahooMail = new YahooMail(driver);
+            YahooMailBox yahooMail = new YahooMailBox(driver);
 
             YahooWriteLetter yahooWriteLetter = new YahooWriteLetter(driver);
             string currentTime = DateTime.Now.TimeOfDay.ToString();
@@ -44,10 +44,10 @@ namespace ConsoleApp5
             ExitAccount exitAccount = new ExitAccount(driver);
 
             YahooLoginUsername yahooLoginUsername2 = new YahooLoginUsername(driver);
-            yahooLoginUsername2.EnterUsername("olgamautomation@yahoo.com");
+            yahooLoginUsername2.GoToPasswordPage("olgamautomation@yahoo.com");
 
             YahooLoginPassword yahooLoginPassword2 = new YahooLoginPassword(driver);
-            yahooLoginPassword2.EnterPassword("Aa2753331!");
+            yahooLoginPassword2.GoToMailBoxPage("Aa2753331!");
 
             IWebElement newLetter3 = driver.FindElement(By.XPath(string.Format("//span[(@title='{0}')]", currentTime)));
             newLetter3.Click();
@@ -62,10 +62,10 @@ namespace ConsoleApp5
             ExitAccount exitAccount3 = new ExitAccount(driver);
 
             YahooLoginUsername yahooLoginUsername3 = new YahooLoginUsername(driver);
-            yahooLoginUsername2.EnterUsername("volhamautomation@yahoo.com");
+            yahooLoginUsername2.GoToPasswordPage("volhamautomation@yahoo.com");
 
             YahooLoginPassword yahooLoginPassword3 = new YahooLoginPassword(driver);
-            yahooLoginPassword2.EnterPassword("Aa2753331!");
+            yahooLoginPassword2.GoToMailBoxPage("Aa2753331!");
 
 
             IWebElement newLetter4 = driver.FindElement(By.XPath(string.Format("//span[(@title='{0}')]", currentTime)));

@@ -35,5 +35,20 @@ namespace HomeWork.Pages
             ContentField.SendKeys(enterContent);
             SentdButton.Click();
         }
+
+        public bool WriteletterPageAppears()
+        {
+            var addresseeField = FindElement(By.XPath(AddresseeFieldLocator));
+            var topicField = FindElement(By.XPath(TopicFieldLocator));
+            var contentField = FindElement(By.XPath(ContentFieldLocator));
+            var sentdButton = FindElement(By.XPath(SendButtonLocator));
+            return addresseeField != null && topicField!= null && contentField != null && sentdButton!= null;
+        }
+
+        public void WriteLetterFromVolhaToOlga()
+        {
+            string currentTime = DateTime.Now.TimeOfDay.ToString();
+            WriteLetter("olgamautomation@yahoo.com", currentTime, "Aturomation Test from VolhaM");
+        }
     }
 }
